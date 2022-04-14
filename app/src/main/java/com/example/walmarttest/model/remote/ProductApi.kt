@@ -25,7 +25,8 @@ interface ProductApi {
         private fun initRetrofit(): ProductApi{
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create().asLenient())
+                //                .addConverterFactory(MoshiConverterFactory.create().asLenient()) uncomment to have a problem in Retrofit and keep the Loading state
+                .addConverterFactory(MoshiConverterFactory.create())
                 .build()
                 .create(ProductApi::class.java)
         }
